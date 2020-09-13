@@ -40,13 +40,24 @@ exports.getIndex = (req, res, next) => {
   });
 };
 
-// click Cart > "/cart"
+// click Cart > "/cart" => GET
 exports.getCart = (req, res, next) => {
   // rendering ./views/shop/cart.ejs
   res.render("shop/cart", {
     path: "/cart",
     pageTitle: "Your Cart",
   });
+};
+
+// click Cart > "/cart" => POST
+exports.postCard = (req, res, next) => {
+  /*
+    productId is the field on the hidden input
+    in product-detail.ejs
+  */
+  const prodId = req.body.productId;
+  console.log(prodId);
+  res.redirect("/cart");
 };
 
 // click Orders > "/orders"

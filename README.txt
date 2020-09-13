@@ -31,7 +31,7 @@ III. Module Notes:
             - ./controller/shop.js: under getProduct(): This
                 is how we retrieve params in dynamic routes
     
-    2. Loading and Rendering Data with Params in Dynamic Routes: 
+    2. Rendering Product Details View and Passing Data with POST Requests: 
         a. Loading Data with Params:
             - 3rd Commit
             - ./models/product.js: see findById() for logic 
@@ -39,9 +39,15 @@ III. Module Notes:
             - ./controllers/shop.js: see getProduct() to see how 
                 to render product details page
         
-        b. Rendering Product Views: 
-        
-
+        b. Passing Data with POST Requests: 
+            - 4th Commit
+            - ./routes/shop.js: added post rendering for /cart route
+            - ./controllers/shop: added post hanlder for /cart route
+                see postCard() 
+            - POST request triggered by any "Add To Cart" button
+                all triggered in ./includes/add-to-cart.ejs
+                included in: product-details.ejs, product-listing.ejs
+                    and index.ejs
 
 IV. Other Notes: 
     This module contain: 
