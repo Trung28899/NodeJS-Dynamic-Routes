@@ -3,6 +3,7 @@
 */
 
 const Product = require("../models/product");
+const Cart = require("../models/cart");
 
 // click Products > '/products'
 exports.getProducts = (req, res, next) => {
@@ -51,12 +52,11 @@ exports.getCart = (req, res, next) => {
 
 // click Cart > "/cart" => POST
 exports.postCard = (req, res, next) => {
-  /*
-    productId is the field on the hidden input
-    in product-detail.ejs
-  */
   const prodId = req.body.productId;
-  console.log(prodId);
+
+  Product.findById(prodId, (product) => {
+    Cart.addProduct(prodId, product.price);
+  });
   res.redirect("/cart");
 };
 

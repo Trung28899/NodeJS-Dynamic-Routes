@@ -48,6 +48,23 @@ III. Module Notes:
                 all triggered in ./includes/add-to-cart.ejs
                 included in: product-details.ejs, product-listing.ejs
                     and index.ejs
+    
+    3. Adding a Cart Model:
+            - 5th Commit: 
+            - ./data/cart.json: originally have to set to { "products": [], "totalPrice": 0 }
+                for it to work
+            - ./models/cart.js: returning Cart class that contains 
+                method addProduct() to read and add item to cart 
+                from ./data/cart.json
+            - ./controller/shop.js under postCard(): Adding an item 
+                for every post request to /cart route. Triggered by 
+                hitting any "Add to Cart" button
+
+        NOTE: in this module, had to change: 
+            - package.json: start script to "nodemon app.js --ignore data/"
+                instead of "node app.js"
+                > This solve issue of not rendering css files after redirected
+                from post request to /cart
 
 IV. Other Notes: 
     This module contain: 
