@@ -30,6 +30,17 @@ III. Module Notes:
             - ./routes/shop.js: how to render dynamic routes
             - ./controller/shop.js: under getProduct(): This
                 is how we retrieve params in dynamic routes
+    
+    2. Loading and Rendering Data with Params in Dynamic Routes: 
+        a. Loading Data with Params:
+            - 3rd Commit
+            - ./models/product.js: see findById() for logic 
+                of loading item by id (params on dynamic routes)
+            - ./controllers/shop.js: see getProduct() to see how 
+                to render product details page
+        
+        b. Rendering Product Views: 
+        
 
 
 IV. Other Notes: 

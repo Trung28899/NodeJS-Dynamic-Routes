@@ -1,3 +1,7 @@
+/*
+  THIS CONTROLLER WILL BE IMPORTED IN ./routes/ file
+*/
+
 const Product = require("../models/product");
 
 // click Products > '/products'
@@ -15,8 +19,13 @@ exports.getProducts = (req, res, next) => {
 // click Products > '/products/productId'
 exports.getProduct = (req, res, next) => {
   const prodID = req.params.productId;
-  console.log(prodID);
-  res.redirect("/");
+  Product.findById(prodID, (product) => {
+    res.render("shop/product-detail", {
+      product: product,
+      pageTitle: product.title,
+      path: "/products",
+    });
+  });
 };
 
 // main page > "/"
