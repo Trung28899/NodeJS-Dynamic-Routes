@@ -7,9 +7,29 @@ I. Tools Used:
     - $ npm install --save express-handlebars@3.0
 
 II. Core Concepts: 
+    1. Dynamic Routes: 
+        - Means that the URL contains some dynamic parameters 
+        (such as: product id, etc...) and we can retrieve that
+        parameters to render our page accordingly 
 
 
 III. Module Notes: 
+    1. Adding and Retrieving Params in Dynamic Routes: 
+        - Code in 2nd Commit
+        - How to use: hit Products > hit "Details" of any product
+            > will return id in console and redirect to shop 
+        
+        a. Adding Params in Dynamic Routes: 
+            - ./models/product.js: added field id under 
+                save() method
+            - .views/shop/product-list.ejs: added a "Details"
+                button (<a> tag) that use the product.id to 
+                add the params to dynamic route
+        
+        b. Retrieving Params in Dynamic Routes: 
+            - ./routes/shop.js: how to render dynamic routes
+            - ./controller/shop.js: under getProduct(): This
+                is how we retrieve params in dynamic routes
 
 
 IV. Other Notes: 

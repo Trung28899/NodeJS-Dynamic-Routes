@@ -12,6 +12,13 @@ exports.getProducts = (req, res, next) => {
   });
 };
 
+// click Products > '/products/productId'
+exports.getProduct = (req, res, next) => {
+  const prodID = req.params.productId;
+  console.log(prodID);
+  res.redirect("/");
+};
+
 // main page > "/"
 exports.getIndex = (req, res, next) => {
   Product.fetchAll((products) => {
