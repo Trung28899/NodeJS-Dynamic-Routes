@@ -110,6 +110,11 @@ III. Module Notes:
             - Compare ./routes/admin.js and ./controller/admin.js 
             of 6th and 7th Commits
             - See views/admin/edit-product.ejs for rendered page
+    
+    5. Application Improvements: 
+        - 8th commit: Able to edit products in "Admin Products" > Edit
+            See admin.js in controllers and routes, see product.js for
+            product class, see edit-product.ejs in views
 
 
 
