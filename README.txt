@@ -11,7 +11,26 @@ II. Core Concepts:
         - Means that the URL contains some dynamic parameters 
         (such as: product id, etc...) and we can retrieve that
         parameters to render our page accordingly 
+        
+        example of dynamic routes:
+            localhost:3000/products/:productId like:    
+                http://localhost:3000/products/123
+                http://localhost:3000/products/456
 
+    2. Query Parameters:     
+        - Query Parameters: 
+            For example: 
+                localhost:3000/admin/edit-product/123?edit=true
+            > edit is a query parameter that has value "true"
+
+                localhost:3000/admin/edit-product/123?edit=true&edit2=false
+            > edit and edit2 are query parameters
+        
+        - Accessing parameters: 
+            for the above example, we can use: 
+                +, req.query.edit
+                +, req.query.edit2
+            in the middleware
 
 III. Module Notes: 
     1. Adding and Retrieving Params in Dynamic Routes: 
@@ -50,21 +69,36 @@ III. Module Notes:
                     and index.ejs
     
     3. Adding a Cart Model:
-            - 5th Commit: 
-            - ./data/cart.json: originally have to set to { "products": [], "totalPrice": 0 }
-                for it to work
-            - ./models/cart.js: returning Cart class that contains 
-                method addProduct() to read and add item to cart 
-                from ./data/cart.json
-            - ./controller/shop.js under postCard(): Adding an item 
-                for every post request to /cart route. Triggered by 
-                hitting any "Add to Cart" button
+        - 5th Commit: 
+        - ./data/cart.json: originally have to set to { "products": [], "totalPrice": 0 }
+            for it to work
+        - ./models/cart.js: returning Cart class that contains 
+            method addProduct() to read and add item to cart 
+            from ./data/cart.json
+        - ./controller/shop.js under postCard(): Adding an item 
+            for every post request to /cart route. Triggered by 
+            hitting any "Add to Cart" button
 
-        NOTE: in this module, had to change: 
-            - package.json: start script to "nodemon app.js --ignore data/"
-                instead of "node app.js"
-                > This solve issue of not rendering css files after redirected
-                from post request to /cart
+    NOTE: in this module, had to change: 
+        - package.json: start script to "nodemon app.js --ignore data/"
+            instead of "node app.js"
+            > This solve issue of not rendering css files after redirected
+            from post request to /cart
+
+    4. Using Query Parameters: 
+        - 6th Commit
+        - ./routes/admin.js: added a route hanlder for
+            "/edit-product/:productId"
+        - ./controller/admin.js: rendering the the route
+            for edit product under getEditProduct()
+        
+        NOTE THAT: right now we hit Admin Products > 
+        Click "Edit" button > page not found will be rendered
+        be cause the route will be 'admin/edit-product'
+
+        we only added a route for 'admin/edit-product/?productId'
+        in ./routes/admin.js
+
 
 IV. Other Notes: 
     This module contain: 
