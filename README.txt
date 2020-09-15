@@ -85,19 +85,33 @@ III. Module Notes:
             > This solve issue of not rendering css files after redirected
             from post request to /cart
 
-    4. Using Query Parameters: 
-        - 6th Commit
-        - ./routes/admin.js: added a route hanlder for
-            "/edit-product/:productId"
-        - ./controller/admin.js: rendering the the route
-            for edit product under getEditProduct()
-        
-        NOTE THAT: right now we hit Admin Products > 
-        Click "Edit" button > page not found will be rendered
-        be cause the route will be 'admin/edit-product'
+    4. Using Query Parameters and Rendering Editing Information: 
+        a. Using Query Parameters: 
+            - 6th Commit
+            - ./routes/admin.js: added a route hanlder for
+                "/edit-product/:productId"
+            - ./controller/admin.js: rendering the the route
+                for edit product under getEditProduct()
+            
+            NOTE THAT: right now we hit Admin Products > 
+            Click "Edit" button > page not found will be rendered
+            be cause the route will be 'admin/edit-product'
 
-        we only added a route for 'admin/edit-product/?productId'
-        in ./routes/admin.js
+            we only added a route for 'admin/edit-product/?productId'
+            in ./routes/admin.js
+
+            The good route should be something like this: 
+            http://localhost:3000/admin/edit-product/456?edit=true
+
+            with 456 is a parameter and edit is a query params
+
+        b. Rendering Edit Page: 
+            - 7th Commit
+            - Compare ./routes/admin.js and ./controller/admin.js 
+            of 6th and 7th Commits
+            - See views/admin/edit-product.ejs for rendered page
+
+
 
 
 IV. Other Notes: 

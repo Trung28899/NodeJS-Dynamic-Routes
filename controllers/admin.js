@@ -4,6 +4,7 @@ exports.getAddProduct = (req, res, next) => {
   res.render("admin/edit-product", {
     pageTitle: "Add Product",
     path: "/admin/add-product",
+    editing: false,
   });
 };
 
@@ -19,37 +20,23 @@ exports.postAddProduct = (req, res, next) => {
 
 // Handling Edit-Product
 exports.getEditProduct = (req, res, next) => {
-  /*
-    Getting query parameters
-    For example: with route
-
-    http://localhost:3000/admin/edit-product/123?edit=true
-    we have editMode = true
-
-    if not mentioned, editMode = undefined
-  */
   const editMode = req.query.edit;
-  /*
-    if editMode is not true, redirect to shop 
-    For example: routes like this will get redirected
-    to shop
 
-    http://localhost:3000/admin/edit-product/123
-  */
   if (!editMode) {
     return res.redirect("/");
   }
-  /*
-    else render the product form
-    For example: routes like this will render 
-    the ./views/admin/edit-product.ejs
 
-    localhost:3000/admin/edit-product/123?edit=true
-  */
-  res.render("admin/edit-product", {
-    pageTitle: "Edit Product",
-    path: "/admin/edit-product",
-    editing: editMode,
+  const prodId = req.params.productId;
+  Product.findById(prodId, (product) => {
+    if (!product) {
+      return res.redirect("/");
+    }
+    res.render("admin/edit-product", {
+      pageTitle: "Edit Product",
+      path: "/admin/edit-product",
+      editing: editMode,
+      product: product,
+    });
   });
 };
 
