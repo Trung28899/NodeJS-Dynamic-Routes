@@ -7,6 +7,9 @@ I. Tools Used:
     - $ npm install --save express-handlebars@3.0
 
 II. Core Concepts: 
+    View Summary Here: 
+    https://drive.google.com/file/d/1m-oD2QEIgUQ-t1lJ1Y208En_BeB2dSGA/view?usp=sharing
+    
     1. Dynamic Routes: 
         - Means that the URL contains some dynamic parameters 
         (such as: product id, etc...) and we can retrieve that
@@ -128,4 +131,6 @@ IV. Other Notes:
         - Passing Route Params
         - Using Query Params
         - Enhance our Models
-        
+    
+    View Module Summary Image here: 
+    > https://drive.google.com/file/d/1m-oD2QEIgUQ-t1lJ1Y208En_BeB2dSGA/view?usp=sharing
