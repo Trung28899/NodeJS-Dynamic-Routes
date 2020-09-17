@@ -40,6 +40,9 @@ exports.getEditProduct = (req, res, next) => {
   });
 };
 
+/*
+  Action for editing product
+*/
 exports.postEditProduct = (req, res, next) => {
   // Get it from the hidden input in edit-product.ejs
   const prodId = req.body.productId;
@@ -67,4 +70,11 @@ exports.getProducts = (req, res, next) => {
       path: "/admin/products",
     });
   });
+};
+
+/*Action for deleting product*/
+exports.postDeleteProduct = (req, res, next) => {
+  const prodId = req.body.productId;
+  Product.deleteById(prodId);
+  res.redirect("/admin/products");
 };

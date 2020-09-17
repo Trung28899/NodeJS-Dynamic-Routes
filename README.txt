@@ -115,6 +115,8 @@ III. Module Notes:
         - 8th commit: Able to edit products in "Admin Products" > Edit
             See admin.js in controllers and routes, see product.js for
             product class, see edit-product.ejs in views
+        - 9 Commit: delete products and delete product in cart with
+            the deleted product
 
 
 
