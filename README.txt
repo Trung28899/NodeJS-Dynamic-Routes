@@ -118,7 +118,8 @@ III. Module Notes:
         - 9th Commit: delete products and delete product in cart with
             the deleted product
         - 10th Commit: showing products in cart (hit "Cart" button)
-
+        - 11st Commit: Delete products in Cart
+            > Shop is now fully functional 
 
 
 

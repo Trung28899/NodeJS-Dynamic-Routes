@@ -78,6 +78,14 @@ exports.postCard = (req, res, next) => {
   res.redirect("/cart");
 };
 
+exports.postCartDeleteProduct = (req, res, next) => {
+  const prodId = req.body.productId;
+  Product.findById(prodId, (product) => {
+    Cart.deleteProduct(prodId, product.price);
+    res.redirect("/cart");
+  });
+};
+
 // click Orders > "/orders"
 exports.getOrders = (req, res, next) => {
   // rendering ./views/shop/orders.ejs

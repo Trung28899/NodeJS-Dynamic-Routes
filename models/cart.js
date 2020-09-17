@@ -53,9 +53,11 @@ module.exports = class Cart {
 
       let productQty = 0;
 
-      if (product) {
-        productQty = product.qty;
+      if (!product) {
+        return;
       }
+
+      productQty = product.qty;
 
       updatedCart.products = updatedCart.products.filter(
         (prod) => prod.id !== id
